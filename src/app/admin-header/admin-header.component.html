@@ -1,1 +1,19 @@
-<p>admin-header works!</p>
+<div class="container-main">
+    <div class="title">
+      <p>Header</p>
+    </div>
+  
+    <div class="form-container">
+      <form (submit)="updateHeader()" class="form-box">
+        <input type="text" name="startDate" placeholder="name" [(ngModel)]="header.name" class="input" /><br />
+        <input type="text" name="endDate" placeholder="goalLife" [(ngModel)]="header.goalLife" class="input" /><br />
+        <input type="text" name="img" placeholder="photoUrl" [(ngModel)]="header.photoUrl" class="input" /><br />
+        <input type="text" name="goalLife" placeholder="email" [(ngModel)]="header.email" class="input" /><br />
+        <input type="text" name="phone" placeholder="phone" [(ngModel)]="header.phoneNumber" class="input" /><br />
+        <input type="text" name="location" placeholder="location" [(ngModel)]="header.location" class="input" /><br />
+        <input type="text" name="socialNetwork" placeholder="socialNetwork" [(ngModel)]="header.socialNetwork" class="input" /><br />
+        <button type="submit" class="btn-primary">{{ btntxt }}</button>
+      </form>
+    </div>
+  
+  </div>
