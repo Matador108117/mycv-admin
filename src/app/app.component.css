@@ -22,10 +22,10 @@ nav {
     border-radius: 10px;
   }
   
-  /* Efecto al pasar el mouse */
+  
   .nav-menu li a:hover {
     transform: scale(1.15);
     background-color: rgba(255, 255, 255, 0.15);
     color: #ffffff;
   }
-  
+ 
