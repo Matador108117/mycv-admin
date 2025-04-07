@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AppComponent} from './app.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminWorkexperienceComponent } from './admin-workexperience/admin-workexperience.component';
 import { AdminEducationComponent } from './admin-education/admin-education.component';
@@ -10,7 +9,6 @@ import { AdminLanguagesComponent } from './admin-languages/admin-languages.compo
 import { AdminInterestsComponent } from './admin-interests/admin-interests.component';
 
 const routes: Routes = [
-  {path: '/',component: AppComponent}, 
   { path: 'header', component: AdminHeaderComponent },
   { path: 'workexperience', component: AdminWorkexperienceComponent },
   { path: 'education', component: AdminEducationComponent },
