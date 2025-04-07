@@ -1,1 +1,14 @@
-<p>admin-skills works!</p>
+<div class="container-main">
+    <div class="title">
+      <p>Skills items</p>
+    </div>
+  
+    <div class="form-container">
+      <form (submit)="updateInterest()" class="form-box">
+        <input type="text" name="startDate" placeholder="date (mm/yyyy)" [(ngModel)]="skills.languagues" class="input" /><br />
+        <input type="text" name="endDate" placeholder="Education institute" [(ngModel)]="skills.Areas" class="input" /><br />
+        <button type="submit" class="btn-primary">{{ btntxt }}</button>
+      </form>
+    </div>
+  
+  </div>
