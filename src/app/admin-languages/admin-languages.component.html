@@ -1,1 +1,23 @@
-<p>admin-languages works!</p>
+<div class="container-main">
+    <div class="title">
+      <p>Languages items</p>
+    </div>
+  
+    <div class="form-container">
+      <form (submit)="AgregarJob()" class="form-box">
+        <input type="text" name="startDate" placeholder="language" [(ngModel)]="myLanguages.language" class="input" /><br />
+        <input type="text" name="endDate" placeholder="percentage" [(ngModel)]="myLanguages.percentage" class="input" /><br />
+        <button type="submit" class="btn-primary">{{ btntxt }}</button>
+      </form>
+    </div>
+  
+    <div class="job-list">
+      <div *ngFor="let job of languages;" class="job-card">
+        <div class="job-info">{{job.language}} - {{job.percentage}}</div>
+        <div class="job-actions">
+          <button class="btn-danger" (click)="deleteJob(job.id)">Delete</button>
+          <button class="btn-secondary" (click)="updateJob(job.id)">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
