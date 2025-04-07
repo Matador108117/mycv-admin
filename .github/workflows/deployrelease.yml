@@ -30,13 +30,13 @@ jobs:
         run: ls -la
 
       - name: List directory after build
-        run: ls -la dist
+        run: ls -la dist/admin-cv
         
       - name: list dir 
-        run: ls -la dist/admin-mycv/browser
+        run: ls -la dist/admin-cv/browser
 
       - name: copy index.html, css, js
-        run: cp dist/admin-mycv/browser/*.* docs
+        run: cp dist/admin-cv/browser/*.* docs
 
       - name: list docs
         run: ls -la docs
