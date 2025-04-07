@@ -36,7 +36,7 @@ jobs:
         run: ls -la dist/mycv/browser
 
       - name: copy index.html, css, js
-        run: cp dist/mycv/browser/*.* docs
+        run: cp dist/admin-mycv/browser/*.* docs
 
       - name: list docs
         run: ls -la docs
