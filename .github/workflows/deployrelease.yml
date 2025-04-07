@@ -1,0 +1,53 @@
+name: CI/CD deploy release
+on: 
+  push:
+    branches: [ "deploy-release"]
+    
+jobs:
+  ci_cd_deploy_release:
+    runs-on: ubuntu-latest
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: echo 'hello world'
+
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies 
+        run: npm ci
+
+      - name: Build setup
+        run: npm run build
+
+      - name: List directory before build
+        run: ls -la
+
+      - name: List directory after build
+        run: ls -la dist
+        
+      - name: list dir 
+        run: ls -la dist/mycv/browser
+
+      - name: copy index.html, css, js
+        run: cp dist/mycv/browser/*.* docs
+
+      - name: list docs
+        run: ls -la docs
+        
+      - name: GIT commit and push docs1
+        env: 
+          CI_COMMIT_MESSAGE: save spark results
+          CI_COMMIT_AUTHOR: matador108117
+        run: |
+             git config --global user.name "matador108117"
+             git config --global user.email "zS23004741@estudiantes.uv.mx"
+             git add .
+             git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
+             git push origin deploy-release
