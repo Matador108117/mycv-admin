@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Languages } from '../models/languages/languages.model';
+import { Languages } from '../../models/languages/languages.model';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore'; 
 
 @Injectable({
