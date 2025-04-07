@@ -1,8 +1,7 @@
-import { Component, INJECTOR } from '@angular/core';
+import { Component } from '@angular/core';
 import { InterestsService } from '../services/interests-service/interests.service';
 import { Interests } from '../models/interests/interests.model';
 import { map } from 'rxjs/operators';
-import { NonNullAssert } from '@angular/compiler';
 @Component({
   selector: 'app-admin-interests',
   templateUrl: './admin-interests.component.html',
