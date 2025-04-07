@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AppComponent} from './app.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminWorkexperienceComponent } from './admin-workexperience/admin-workexperience.component';
 import { AdminEducationComponent } from './admin-education/admin-education.component';
