@@ -46,6 +46,7 @@ itemCount : Number = 0;
       this.btntxt = "Actualizar";
       this.isEditMode = true;
       this.editId = id || null;
+      console.log('cambio');
     }
   }
   deleteJob( id? : string) {
