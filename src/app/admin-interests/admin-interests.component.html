@@ -1,1 +1,14 @@
-<p>admin-interests works!</p>
+<div class="container-main">
+    <div class="title">
+      <p>Inteters</p>
+    </div>
+  
+    <div class="form-container">
+      <form (submit)="updateInterest()" class="form-box">
+        <textarea name="interest" placeholder="Write about your interests..." [(ngModel)]="Interests.interest" class="input textarea" rows="5"></textarea>
+
+        <button type="submit" class="btn-primary">{{ btntxt }}</button>
+      </form>
+    </div>
+  
+  </div>
