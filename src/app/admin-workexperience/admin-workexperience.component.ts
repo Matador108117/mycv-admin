@@ -27,13 +27,13 @@ export class AdminWorkexperienceComponent {
   
   AgregarJob() {
     if (this.isEditMode && this.editId) {
-      // Si está en modo edición, actualiza el elemento
+   
       this.WorkExperienceService.updateEducation(this.editId, this.myWorkExperience).then(() => {
         console.log('Updated item successfully!');
         this.resetForm();
       });
     } else {
-      // Si no, crea un nuevo elemento
+   
       this.WorkExperienceService.createWorkExperience(this.myWorkExperience).then(() => {
         console.log('Created new item successfully!');
         this.resetForm();
@@ -44,7 +44,7 @@ export class AdminWorkexperienceComponent {
 updateJob(id?: string) {
   const jobToEdit = this.workExperience.find(job => job.id === id);
   if (jobToEdit) {
-    this.myWorkExperience = { ...jobToEdit }; // Cargamos los datos en el formulario
+    this.myWorkExperience = { ...jobToEdit }; 
     this.btntxt = "Actualizar";
     this.isEditMode = true;
     this.editId = id || null;
