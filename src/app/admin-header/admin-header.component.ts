@@ -2,13 +2,15 @@ import { Component } from '@angular/core';
 import { HeaderService } from '../services/header-service/header.service';
 import { Header } from '../models/header/header.model';
 import { map } from 'rxjs/operators';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-admin-header',
   templateUrl: './admin-header.component.html',
   styleUrl: './admin-header.component.css'
 })
 export class AdminHeaderComponent {
-  btntxt: string = "Actualizar";
+  btntxt: string = "Update";
   goalText: string = "";
   header: Header = new Header;
   isEditMode: boolean = false;
@@ -24,9 +26,28 @@ export class AdminHeaderComponent {
   }
 
   updateHeader(id?: string): void {
-    if (this.header && this.header.id) {
-    this.headerService.updateHeader(this.header.id, {name: this.header.name, goalLife: this.header.goalLife, photoUrl: this.header.photoUrl, email: this.header.email, phoneNumber: this.header.phoneNumber, location: this.header.location, socialNetwork: this.header.socialNetwork});
-    
-    }
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'this action is going to update the header section ',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.isConfirmed && this.header && this.header.id) {
+        this.headerService.updateHeader(this.header.id, {
+          name: this.header.name,
+          goalLife: this.header.goalLife,
+          photoUrl: this.header.photoUrl,
+          email: this.header.email,
+          phoneNumber: this.header.phoneNumber,
+          location: this.header.location,
+          socialNetwork: this.header.socialNetwork
+        });
+  
+        Swal.fire('Done !', 'all is up to date.', 'success');
+      }
+    });
   }
+  
 }

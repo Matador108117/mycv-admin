@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { InterestsService } from '../services/interests-service/interests.service';
 import { Interests } from '../models/interests/interests.model';
 import { map } from 'rxjs/operators';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-admin-interests',
   templateUrl: './admin-interests.component.html',
@@ -9,7 +10,7 @@ import { map } from 'rxjs/operators';
 })
 export class AdminInterestsComponent {
  itemCount : Number = 0; 
-  btntxt: string = "Actualizar";
+  btntxt: string = "Update";
   goalText: string = "";
   Interests: Interests = new Interests;
  isEditMode: boolean = false;
@@ -25,10 +26,21 @@ export class AdminInterestsComponent {
      });
    }
    updateInterest(id?: string): void {
-    if (this.Interests && this.Interests.id) {
-      this.interestService.updateInterest(this.Interests.id, { interest: this.Interests.interest });
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'this action is going to update the interest section ',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
+    }).then((resutl) => {
+      if (this.Interests && this.Interests.id && resutl.isConfirmed) {
+        this.interestService.updateInterest(this.Interests.id, { interest: this.Interests.interest });
+         Swal.fire('Done !', 'all is up to date.', 'success');
+      }
+
+    }); 
     
-    }
   }
   
   
