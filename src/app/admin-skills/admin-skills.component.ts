@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { SkillsService } from '../services/skills-service/skills.service';
 import { Skills } from '../models/skills/skills.model';
 import { map } from 'rxjs/operators';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-admin-skills',
   templateUrl: './admin-skills.component.html',
   styleUrl: './admin-skills.component.css'
 })
 export class AdminSkillsComponent {
-  btntxt: string = "Actualizar";
+  btntxt: string = "Update";
     goalText: string = "";
     skills: Skills = new Skills;
    isEditMode: boolean = false;
@@ -23,10 +24,23 @@ export class AdminSkillsComponent {
   }
 
   updateInterest(id?: string): void {
-    if (this.skills && this.skills.id) {
-    this.skillsService.updateSkills(this.skills.id, { languagues: this.skills.languagues, Areas: this.skills.Areas });
-    
-    }
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'this action is going to update the skills section ',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
+
+    }).then((result) => {
+      if (this.skills && this.skills.id) {
+        this.skillsService.updateSkills(this.skills.id, { languagues: this.skills.languagues, Areas: this.skills.Areas });
+        
+        }
+        Swal.fire('Done !', 'all is up to date.', 'success');
+
+    });
+
   }
 
 }
