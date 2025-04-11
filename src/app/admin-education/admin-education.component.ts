@@ -30,7 +30,6 @@ export class AdminEducationComponent {
 
     AgregarJob() {
         if (this.isEditMode && this.editId) {
-          // Mostrar confirmación antes de actualizar
           Swal.fire({
             title: 'Would you like to update this item ?',
             text: '¿Are you sure you want to save the changes ?',
@@ -88,7 +87,7 @@ deleteJob(id?: string) {
 
   resetForm() {
     this.myeducation = new Education();
-    this.btntxt = "Agregar";
+    this.btntxt = "Add";
     this.isEditMode = false;
     this.editId = null;
   }
